@@ -32,7 +32,7 @@ def write_deals():
 def read_deals():
     old_titles = []
     old_links = []
-    with open('deals.csv', newline='') as csvfile:
+    with open('webtrh/deals.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             old_titles.append(row["title"])
