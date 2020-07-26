@@ -19,7 +19,7 @@ def get_deals():
 
 def write_deals():
     titles, links = get_deals()
-    with open('webtrh/deals.csv', 'w', newline='') as file:
+    with open('./deals.csv', 'w', newline='') as file:
         fieldnames = ['title','link']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writerow({'title': "title", 'link': "link"})
@@ -32,7 +32,7 @@ def write_deals():
 def read_deals():
     old_titles = []
     old_links = []
-    with open('webtrh/deals.csv', newline='') as csvfile:
+    with open('./deals.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             old_titles.append(row["title"])
