@@ -2,5 +2,4 @@ env/
 __pycache__/
 deals.csv
 access_token.py
-Procfile
-requirements.txt
+
