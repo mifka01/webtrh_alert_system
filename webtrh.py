@@ -25,7 +25,7 @@ if __name__ == "__main__":
             else:
                 if args.show - 1 < len(new_deals):
                     deal = new_deals[args.show -1]
-                    article, budget, numbers = engine.get_deal_details(deal['link'])
+                    article, budget, numbers, _ = engine.get_deal_details(deal['link'])
                     print(deal['title'] + "\n")
                     print(budget + "\n")
                     print(numbers + "\n")

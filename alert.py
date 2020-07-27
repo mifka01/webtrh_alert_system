@@ -1,6 +1,6 @@
 import requests
 import json
-from access_token import TOKEN
+from access_token import ACCESS_TOKEN
  
 def send_notification_via_pushbullet(title, body):
     """ Sending notification via pushbullet.
@@ -11,7 +11,7 @@ def send_notification_via_pushbullet(title, body):
     data_send = {"type": "note", "title": title, "body": body}
 
     resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
-                         headers={'Authorization': 'Bearer ' + TOKEN, 'Content-Type': 'application/json'})
+                         headers={'Authorization': 'Bearer ' + ACCESS_TOKEN, 'Content-Type': 'application/json'})
     if resp.status_code != 200:
         raise Exception('Something wrong')
     else:
