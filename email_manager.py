@@ -39,7 +39,7 @@ def send_email(recipient, title, message):
         'message': message,
         'sbutton': 'Odeslat příspěvek',
         's': None,
-        'securitytoken': 'saVvI-iULN8S7fKTSSWC5DNreJ3KUxor1-jLkZ8c9OjHGLU_7gMi0-y1WSDF5dMA1-B9L8nHb_bo',
+        'securitytoken': 'gtLG6IEtkkkvjH6gsgORpL88F6p8aAAerHLEbukWGLxw-BsdQKsNe1r0IlDBhIHYs93Pk_kxrCRh',
         'receipt': 0,
         'savecopy': 1,
         'signature': 0,

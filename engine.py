@@ -56,7 +56,7 @@ def get_deal_details(link):
     
 
     return article, budget, numbers, seller
-get_deal_details('https://webtrh.cz/453024-hledame-php-developera-schopneho-juniora')
+    
 
 def get_new_deals():
     new_deals = []
