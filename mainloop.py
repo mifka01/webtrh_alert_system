@@ -2,7 +2,7 @@ import engine
 import alert
 from symbol import get_symbol
 from email_manager import get_emails_to_send, send_email
-from message import message_text
+#from message import message_text
 from sended import delete_message
 import time
 
@@ -31,9 +31,7 @@ while True:
         for email in emails:
             print(f"email poslán {email['recipient']} {email['title']}")
             send_email(email['recipient'],email['title'],message_text)
-            delete_message(email['iden'])  
-            delete_message(email['resp_iden'])  
-    time.sleep(60)  
-
-                 
+            delete_message(email['iden'])
+            delete_message(email['resp_iden'])
+    time.sleep(60)
 

@@ -1,10 +1,10 @@
 import requests
 import os 
 import json
-from message import message_text
+#from message import message_text
 from access_token import ACCESS_TOKEN
 from conf import login_data
-
+from bs4 import BeautifulSoup
 
 def get_emails_to_send():
     response = requests.get('https://api.pushbullet.com/v2/pushes',
@@ -39,7 +39,7 @@ def send_email(recipient, title, message):
         'message': message,
         'sbutton': 'Odeslat příspěvek',
         's': None,
-        'securitytoken': 'gtLG6IEtkkkvjH6gsgORpL88F6p8aAAerHLEbukWGLxw-BsdQKsNe1r0IlDBhIHYs93Pk_kxrCRh',
+        'securitytoken': None,
         'receipt': 0,
         'savecopy': 1,
         'signature': 0,
@@ -53,8 +53,12 @@ def send_email(recipient, title, message):
 
     with requests.Session() as session:
         session.post("https://webtrh.cz/login.php?do=login", data=login_data)
+        result = session.get('https://webtrh.cz/private.php?do=newpm')
+        source = result.content
+        soup = BeautifulSoup(source, 'lxml')
+        sec_token = soup.find("input", {"name":"securitytoken"})["value"]
+        email_data["securitytoken"] = sec_token
         resp = session.post('https://webtrh.cz/private.php?do=insertpm&pmid=', data=email_data)
-    
     session.close()
 
 
